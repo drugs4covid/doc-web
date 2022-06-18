@@ -1,0 +1,3 @@
+$('#myModal').on('shown.bs.modal', function (e) {
+    // do something...
+  })

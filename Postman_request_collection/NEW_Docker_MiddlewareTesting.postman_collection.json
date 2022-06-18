@@ -1,0 +1,622 @@
+{
+	"info": {
+		"_postman_id": "ec1e683f-4f54-4e3f-a088-ac4d846032dd",
+		"name": "NEW_Docker_MiddlewareTesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21058107"
+	},
+	"item": [
+		{
+			"name": "UserTestDB",
+			"item": [
+				{
+					"name": "mydbtesting",
+					"item": [
+						{
+							"name": "seealluser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/allusers",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"allusers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteusr",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/users?username=admin1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "admin1"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "newUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/newUser?username=admin1&password=1234",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"newUser"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "admin1"
+										},
+										{
+											"key": "password",
+											"value": "1234"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SearchUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/users?username=admin",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "admin"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"username\": \"Elbarto\",\n  \"password\": \"1234\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/register?Authorization=Bearer <token>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer <token>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ElasticClient",
+			"item": [
+				{
+					"name": "testing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"values\": \n    [\n        {\"data\": \"119050300\",\n         \"date\": \"00:00 2019-06-03\"}\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/index",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newIndex",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"nombre\":\"Adam is a good guy and he knows how to play footbal very well\",\"edad\":\"45\",\"ciudad\":\"madrid\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/newIndex?index=delocos&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"newIndex"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "delocos"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/allindex",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"allindex"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/index?index=delocos&id=2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"index"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "delocos"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateIndex",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"section_s\": \"Lorem ipsum dolor sit amet. Aut molestiae atque vel incidunt dolorum cum eaque voluptatem aut voluptatum fuga. Ut eligendi numquam aut omnis itaque sed veritatis voluptatem est tempora amet in Quis obcaecati qui quos sed explicabo sunt. \",\n    \"text_t\": \"The main immunoglobulin class in mentioned antibody sources is IgG. A comparison of the IgG of cattle, swine and hens is presented in table 3. \",\n    \"id\": \"f2fe04da2f5438a7a9bcf27856e561f4\",\n    \"article_id_s\": \"f8e7efae9fdae4f596b7cdb573ae5dee7eec4e70\",\n    \"size_i\": 143,\n    \"_version_\": 1664508650482302977\n  }\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/index?index=testdataarray&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"index"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "testdataarray"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteIndexbyID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/indexbyid?index=testsearch&id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"indexbyid"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "testsearch"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteIndex",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/deleteindex?index=delocos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"deleteindex"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "delocos"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "seemappingofIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/mapping?index=de",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"mapping"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyze",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n        \"text\":\"Impact of Text Length for Information Retrieval\\nTasks based on Probabilistic Topics\\nInﬂuencia de la Longitud del Texto en Tareas de Recuperaci´on\\nde Informaci´on mediante T´opicos Probabil´ısticos\\nCarlos Badenes-Olmedo, Borja Lozano-´Alvarez, Oscar Corcho\\nOntology Engineering Group, Universidad Polit´ecnica de Madrid, Spain\\n{cbadenes, ocorcho}@ﬁ.upm.es\\n{borja.lozano.alvarez}@alumnos.upm.es\\nAbstract: Information retrieval has traditionally been approached using vector\\nmodels to describe texts. In large document collections, these models need to reduce\\nthe dimensions of the vectors to make the operations manageable without compro-\\nmising their performance. Probabilistic topic models (PTM) propose smaller vector\\nspaces. Words are organized into topics and documents are related to each other\\nfrom their topic distributions. As in many other AI techniques, the texts used to\\ntrain the models have an impact on their performance. Particularly, we are inter-\\nested on the impact that length of texts may have to create PTM. We have studied\\nhow it inﬂuences to semantically relate multilingual documents and to capture the\\nknowledge derived from their relationships. The results suggest that the most ade-\\nquate texts to train PTM should be of equal or greater length than those used to\\nmake inferences later and documents should be related by hierarchy-based similarity\\nmetrics at large-scale.\\nKeywords: probabilistic topics, text similarity, hierarchical topics, document re-\\ntrieval.\\nResumen: La recuperaci´on de informaci´on ha utilizado tradicionalmente modelos\\nvectoriales para describir los textos. A gran escala, estos modelos necesitan reducir\\nlas dimensiones de los vectores para que las operaciones sean manejables sin com-\\nprometer su rendimiento. Los modelos probabil´ısticos de t´opicos (MPT) proponen\\nespacios vectoriales m´as peque˜nos. Las palabras se organizan en t´opicos y los doc-\\numentos se relacionan entre s´ı a partir de sus distribuciones de t´opicos. Como en\\nmuchas otras t´ecnicas de IA, los textos utilizados para entrenar los modelos inﬂuyen\\nen su rendimiento. En particular, nos interesa el impacto de la longitud de los textos\\nal crear MPT. Hemos estudiado c´omo inﬂuye al relacionar sem´anticamente docu-\\nmentos multiling¨ues y al capturar el conocimiento derivado de sus relaciones. Los\\nresultados sugieren que los textos m´as adecuados deben ser de igual o mayor longi-\\ntud que los utilizados para hacer inferencias posteriormente y las relaciones deben\\nbasarse en m´etricas de similitud jer´arquicas.\\nPalabras clave: topicos probabil´ısticos, semejanza de textos, jerarqu´ıa de t´opicos,\\nrecuperaci´on de documentos.\\n1\\nIntroduction\\nProbabilistic Topic Models (PTM) (Hof-\\nmann, 2001) (Blei, Ng, and Jordan, 2003)\\nare statistical methods based on bag-of-words\\nthat analyze the words of the original texts\\nto discover the themes that run through\\nthem, how those themes are connected to\\neach other, or how they change over time.\\nPTM do not require any prior annotations\\nor labeling of the documents.\\nThe topics\\nemerge, as hidden structures, from the anal-\\nysis of the original texts.\\nThese structures\\nare topic distributions, per-document topic\\ndistributions or per-document per-word topic\\nassignments. In turn, a topic is a distribu-\\ntion over terms that is biased around those\\nwords associated to a single theme. Figure 1\\nshows some topics that have emerged when\\ncreating a topic model with the collection of\\nWikipedia articles to better understand what\\nProcesamiento del Lenguaje Natural, Revista nº 67, septiembre de 2021, pp. 27-36\\nrecibido 30-04-2021 revisado 08-06-2021 aceptado 09-06-2021\\nISSN 1135-5948. DOI 10.26342/2021-67-2\\n© 2021 Sociedad Española para el Procesamiento del Lenguaje Natural\\nFigure 1: Topics discovered from the English edi-\\ntion of Wikipedia.\\ntopic means. Each topic is described, this ex-\\nample, by its six most representative words,\\ni.e., those words most present in the docu-\\nments that mainly contain each topic.\\nBag-of-words approach avoids the restric-\\ntion of word sequences to relate documents\\nbased on the use of the same words. PTMs\\nrepresent texts by probability distributions\\nover a vocabulary created from the whole cor-\\npus.\\nEach topic establishes diﬀerent levels\\nof relevance for each word, and documents\\nare described based on the presence of each\\ntopic in their texts. Latent Semantic Index-\\ning (Deerwester et al., 1990) (LSI) initially\\nreduced the TF-IDF model using singular\\nvalue decomposition to ﬁnd the linear sub-\\nspace that capture most of the information\\nin a collection. LSI has shown to yield high\\ncorrelation with human perception of simi-\\nlarity (Jung, Ruthruﬀ, and Goldsmith, 2017)\\nand some authors argued that features de-\\nrived from LSI are able to capture some basic\\nlinguistic notions such as synonymy and pol-\\nysemy. Probabilistic LSI (pLSI) (Hofmann,\\n1999) improved LSI by introducing the con-\\ncept of topic as a multinomial distribution\\nover the vocabulary of a collection. In pLSI\\neach document is described with a vector of\\ntopic proportions, capturing the idea that\\nthere is a ﬁxed number of common themes ex-\\nhibited in a diﬀerent proportion by the docu-\\nments in a collection.\\nBut it was not able\\nto provide a generative process that infers\\ntopic proportions for documents not used in\\nthe training collection. Latent Dirichlet Al-\\nlocation (LDA) (Blei, Ng, and Jordan, 2003)\\nsolved the inferring problem of pLSI by plac-\\ning a Dirichlet distribution over the topic pro-\\nportions for the documents and allowing for\\nthe discovery of the themes running through\\nthe documents. It is considered the simplest\\ngenerative Probabilistic Topic Model. LDA\\nis one of the most widely-used methods when\\nprocessing texts using NLP techniques and\\nits functionality has been extended to multi-\\nple domains (Jelodar et al., 2017).\\nTopic models are trained with large cor-\\npora of texts, which are generally from the\\nsame domain for which we want to make in-\\nferences. Documents can be related based on\\ntheir topics, instead of sequences of words.\\nTopic-based representations bring a lot of\\npotential when applied over diﬀerent infor-\\nmation retrieval (IR) tasks, as evidenced by\\nworks in diﬀerent domains such as health\\n(Nzali et al., 2017), legal (O’Neill et al.,\\n2017), news (He, Li, and Wu, 2017), and hy-\\nbrid proposals combining topic models and\\nword embedding (Dieng, Ruiz, and Blei,\\n2020). However, the ability of topics to ex-\\npress the inherent knowledge on which the re-\\nlationships between documents are built has\\nnot been yet analyzed from the texts used\\nto train the models.\\nAs far as we know,\\nthere are no studies that evaluate how the\\ntext length inﬂuences on the probabilistic\\nmodel created to represent and relate seman-\\ntically documents from their topic distribu-\\ntions by means of similarity functions.\\nIn\\nthis work we have studied the impact that\\nthe text length has, since it determines the\\nspace where words can co-occur, to semanti-\\ncally relate documents described in a proba-\\nbilistic topic space.\\nThis paper is structured as follows: Sec-\\ntion 2 presents the state-of-the-art metrics\\nused to compare documents represented by\\nprobabilistic topics. The methodology that\\nwe have used for the experimentation and\\nhow the evaluation was performed is de-\\nscribed in section 3. Finally, the results are\\npresented and discussed in section 4, along\\nwith the ﬁnal remarks and future work in sec-\\ntion 5.\\n2\\nText Similarity based on\\nProbabilistic Topics\\nSome works have evaluated LDA models to\\nsemantically relate documents.\\nIn (Syed\\nand Spruit, 2017), the quality of the topics\\nwas measured based on the abstract or the\\nfull text of scientiﬁc articles.\\nIt concluded\\nthat full-text was less prone to noisy top-\\nics in small datasets. Regarding the ability\\nto relate similar papers, (Badenes-Olmedo,\\nRedondo-Garc´ıa, and Corcho, 2017b) ana-\\nCarlos Badenes-Olmedo, Borja Lozano-Álvarez, Oscar Corcho\\n28\\nlyzed similarity relations based on topic dis-\\ntributions when using only sections of scien-\\ntiﬁc papers to describe them (i.e. abstract,\\nmethod, background, etc). It concluded that\\nthe background section allows relating them\\nin a more accurate way than using the ab-\\nstract.\\nDistance measures typically used in prob-\\nabilistic topic models are not based on Eu-\\nclidean spaces, e.g.\\ncosine-similarity, but\\nconsider the simplex space created by the\\nDirichlet distribution to support the compar-\\nisons.\\n2.1\\nDensity-based Similarity\\nmetrics\\nDocuments are represented as vectors of\\ntopic distributions in the simplex space cre-\\nated by probabilistic topic models, and dis-\\ntance functions must take into account two\\nconsiderations, namely none-negativity and\\nsum-equal-one (Mao et al., 2017) to ensure\\nthat the document representation is used\\nas a probability distribution.\\nMetrics such\\nas Jensen-Shannon Divergence (JSD) (Eq.1)\\n(also known as symmetric relative entropy)\\nand Hellinger (He) distance (Eq.2) are com-\\nmonly used in these spaces (Rus, Niraula,\\nand Banjade, 2013):\\nJSD(Q, D) =\\n�\\ni=1\\nqi log\\n2qi\\nqi + di\\n+\\n�\\ni=1\\ndi log\\n2di\\nqi + di\\n(1)\\nHe(Q, D) =\\n�\\ni=1\\n��\\nq(xi) −\\n�\\nd(xi)\\n�2\\n(2)\\nHowever these metrics lack the interpreta-\\ntive capacity oﬀered by topics when compar-\\ning documents.\\nFurthermore, in real-world\\nenvironments where computational cost has\\nto be considered those metrics do not scale\\nwell as they require complex operations be-\\ntween all pairs of documents.\\nTo address\\nboth issues, a set of metrics based on hierar-\\nchical representation of topics were proposed,\\nas described next.\\n2.2\\nHierarchy-based Similarity\\nmetrics\\nSimilarity metrics based on density functions\\npresent four major problems when compar-\\ning documents (Badenes-Olmedo, Redondo-\\nGarc´ıa, and Corcho, 2019a):\\n• Pairwise computation of document sim-\\nilarity is costly and grows linearly with\\nthe size of the corpus.\\n• Simplex metrics do not oﬀer a semantic\\nexplanation for the similarity obtained.\\n• Documents that do not share any acti-\\nvated topics (i.e. the bigger components\\nof the topic proportion vector) can still\\nhave high similarity due to the sum of\\ndistances between the less representative\\ntopics (i.e.\\nthe smaller components of\\nthe topic proportion vector).\\n• These metrics cannot be extended to\\nsupport semantic restrictions to enrich\\nqueries in the corpus.\\nTo alleviate these issues, a new approach\\nto compare topic distributions was pro-\\nposed (Badenes-Olmedo,\\nRedondo-Garc´ıa,\\nand Corcho, 2019a) that reduces the topic\\ndistributions vector to a hierarchical set-type\\nvector. Documents are described by sets of\\ntopics grouped into three relevance levels.\\nThey are compared using the Jaccard index,\\na metric that compares how similar two sets\\nare by how many objects they share. In our\\nexperiments, a linear distribution of weights\\n(i.e wi = 3 − i) has been used to add up the\\nhierarchy levels (Eq.3):\\nWJL(HA, HB) =\\nL\\n�\\ni=0\\nL\\n�\\nj=0\\nwiwj ∗\\n|HA\\ni ∩ HB\\nj |\\n|HA\\ni ∪ HB\\nj |\\n(3)\\n3\\nExperiments\\nOur study is aimed at evaluating how text\\nlength inﬂuences the probabilistic topics that\\nare created from a document corpus, and how\\nthis inﬂuences the calculations and results of\\nstate-of-the-art similarity metrics to seman-\\ntically relate documents. Several document\\nretrieval tasks were designed from annotated\\ndocument collections.\\nThe study considers\\nboth multilingual and monolingual scenar-\\nios.\\nFrom a collection of documents man-\\nually tagged with categories, we train topic\\n(a) Before text processing. (b) After text processing.\\nFigure 2: bag-of-words size.\\nImpact of Text Length for Information Retrieval Tasks based on Probabilistic Topics\\n29\\nmodels to create representation spaces where\\ntexts are projected and compared to identify\\nsimilar documents.\\nWe divide the original\\ncorpus into several datasets by grouping doc-\\numents with similar length to measure how\\ntext length inﬂuences the relations obtained.\\nA probabilistic topic model is trained for each\\ndataset, and is used to make inferences across\\nall datasets.\\nIn this way we evaluate the\\nperformance of topic models to relate simi-\\nlar documents when the length of the texts\\nused in training and inferences vary (Fig.3).\\n3.1\\nCorpora\\nA multilingual corpora was created from the\\nEnglish and the Spanish editions of the JRC-\\nAcquis (Steinberger et al., 2006) and DGT-\\nAcquis (Steinberger et al., 2014) datasets. It\\ncontains 135.836 legislative texts of the Eu-\\nropean Union (EU) from the 1950s to 2011.\\nThe length of the texts is calculated using\\nwhite spaces and punctuation marks to dis-\\ntinguish terms.\\nMore advanced techniques\\nbased on phrases or entities could have been\\nused, but we want to avoid the noise they\\nmight introduce in their inferences. The me-\\ndian length of the texts, since Acquis is a\\nparallel corpus, is 152 terms for English texts\\nand 150 terms for Spanish texts with a high\\nvariance from less than 7 terms in the short-\\nest texts to more than 1.300 terms in the\\nlongest texts (Table 1). The distribution of\\ndocuments according to their number of to-\\nkens is shown in Figure 3.\\nDocuments are annotated with the Eu-\\nroVoc taxonomy, which follows the Interna-\\ntional Standards for processing the documen-\\ntary information of the EU institutions ( ISO\\n2788-1986 and ISO 5964-1985). It is a multi-\\nlingual thesaurus with 7,193 concepts/labels\\nfrom 21 domain areas such as politics, inter-\\nnational relations, law, economics, etc.\\nIn\\nour study we used the 452 root concepts iden-\\ntiﬁed in (Badenes-Olmedo, Redondo-Garc´ıa,\\nEnglish\\nSpanish\\n#Documents\\n67781\\n68055\\n#Terms\\nMedian\\n152\\n150\\nMean\\n204.13\\n203.54\\nVariance\\n36080.66\\n37074.97\\nMin\\n7\\n6\\nMax\\n1360\\n1411\\nTable 1: Multilingual corpora created from the\\nJRC and DGT Acquis datasets.\\nand Corcho, 2019b) to categorize documents.\\nIn this way we ensure independence between\\nprobabilistic topics when creating the mod-\\nels from these categories. This is a restric-\\ntion imposed by topic models as they are de-\\nscribed by density functions.\\n3.2\\nText Pre-Processing and Topic\\nModel Training\\nTexts were pre-processed to remove common\\nstopwords and domain-speciﬁc ones based on\\ntopic distributions.\\nRare terms with ex-\\ntremely low total document frequency were\\nalso removed. Words were lemmatized and\\ntransformed to lower-case. A lower and an\\nupper limit on the number of words were de-\\nﬁned to homogenize the size of bag-of-words.\\nThese bounds are based on the interquartile\\nrange (Fig.\\n2) and are commonly applied\\nin the state-of-the-art (Schoﬁeld, Magnusson,\\nand Mimno, 2017).\\nTopic models were created using the\\nGibbs\\nsampling\\nimplementation\\nfrom\\nli-\\nbrAIry(Badenes-Olmedo,\\nRedondo-Garc´ıa,\\nand Corcho, 2017a) system.\\nBy default it\\nonly uses verbs, nouns, proper nouns and ad-\\njectives to create the models. The Dirichlet\\npriors α = 0.1 and β = 0.01 were set follow-\\ning the conclusions from (Hu et al., 2014).\\nModels with 50, 100, 300 and 500 topics were\\nconsidered to analyze their ability to cap-\\nture the knowledge needed to accurately re-\\nlate similar documents.\\n3.3\\nExperimental Scenarios\\nOur task consists in searching for related doc-\\numents to a given text, using representations\\nbased on diﬀerent trained probabilistic top-\\nics, and comparing this result with the set of\\nrelated documents, based on their overlap in\\nterms of Eurovoc categories (Figure 3). The\\nability of probabilistic topics to capture the\\ninherent knowledge of the corpus and allow\\ndocuments to be related to each other from\\ntheir vector representations is evaluated by\\ncomparing the relationships obtained by this\\nprocess with those obtained from the manual\\nlabels they share.\\nEach document in the original corpus\\nis manually annotated with EuroVoc cate-\\ngories.\\nThe original set of categories was\\nreduced to 452 independently identiﬁed ar-\\neas.\\nDocuments that share the same cate-\\ngories are considered to be semantically re-\\nlated and serve as a ground-truth to validate\\nCarlos Badenes-Olmedo, Borja Lozano-Álvarez, Oscar Corcho\\n30\\nFigure 3: Preparation of experiments by creating topic models for each subset of the original corpus and\\ncross-validated with EuroVoc thesaurus.\\nthe unsupervised approach based on proba-\\nbilistic topics.\\nThree evaluation scenarios were created,\\neach of them dividing the initial corpora into\\nsubsets of the same size with texts of simi-\\nlar length.\\nWe have considered 3, 6 and 9\\ndivisions of the original corpus in order to\\nhave enough detail when analyzing the re-\\nsults.\\nThe higher the number of divisions,\\nthe greater the detail but the lower the num-\\nber of documents in each subset and this may\\naﬀect the quality of the trained topic model.\\nWith these three scenarios we have an ade-\\nquate balance between detail and quality of\\ntopic models.\\nDocuments were pre-processed to ﬁlter\\nout verbs, proper names, nouns and adjec-\\ntives (i.e tokens) and to create bag-of-words\\nwith them. The inter-quartile index (±1.5)\\nwas taken into account to discard too short\\nor long texts ( see Table 2).\\nData was divided into a sample subset\\n(5%) for testing and the rest (95%) was used\\nto train a topic model. The test set was de-\\nscribed by topic distributions based on the\\ntrained model. State-of-the-art distance met-\\nrics were used to compare them and to obtain\\nthe most similar ones. The top10 most simi-\\nlar documents are evaluated in terms of Mean\\nAverage Precision (MAP) with the top10 ob-\\ntained when comparing them from the Eu-\\nroVoc labels. MAP allows evaluating on av-\\nerage how good the results of a query are by\\ntaking the mean of all average precisions for\\nthe ﬁrst 10 results when comparing a list of\\nretrieved documents and the ground truth.\\n#Divisions\\nPartition\\n#Docs\\nMedian\\nMean\\n3\\n1\\n22,594\\n43\\n49.75\\n2\\n22,593\\n152\\n152.76\\n3\\n22,594\\n337\\n409.88\\n6\\n1\\n11,297\\n20\\n20.74\\n2\\n11,297\\n84\\n78.75\\n3\\n11,297\\n129\\n128.42\\n4\\n11,296\\n175\\n177.11\\n5\\n11,297\\n255\\n261.76\\n6\\n11,297\\n517\\n558.03\\n9\\n1\\n7,532\\n13\\n14.77\\n2\\n7,531\\n43\\n45.49\\n3\\n7,531\\n89\\n88.98\\n4\\n7,531\\n121\\n120.56\\n5\\n7,531\\n152\\n151.96\\n6\\n7,531\\n185\\n185.76\\n7\\n7,531\\n236\\n238.73\\n8\\n7,531\\n337\\n346.14\\n9\\n7,532\\n619\\n644.73\\nTable 2: tokens per partition and division.\\n4\\nResults\\nAs expected, models trained with small doc-\\numents perform worse than those with large\\ndocuments specially for the supervised splits\\nwhere groups had the same number of doc-\\numents(see tables A.1 to A.6).\\nThe small-\\nest document group still had the worst per-\\nformance in the unsupervised split, but, due\\nto groups not having the same number of\\ndocuments, the biggest document group usu-\\nally had the second worst P@k, specially for\\nlarger texts.\\nImpact of Text Length for Information Retrieval Tasks based on Probabilistic Topics\\n31\\n4.1\\nCategorization based on\\nTopics\\nA topic-based similarity to all documents in\\ncorpus is calculated according to density and\\nhierarchy-based metrics (described in Section\\n2) for each test document.\\nSince several topic models have been cre-\\nated for each dataset (with 50,100,300 and\\n500 topics), the precision results for each\\nmodel were averaged following the mean av-\\nerage precision (MAP) metric. Thus, results\\nreﬂect the capacity of each topic model to au-\\ntomatically capture the knowledge required\\nto relate documents from their texts.\\nAs\\nshown in Table 3, the use of probabilistic top-\\nics to automatically relate documents oﬀers\\na performance with an accuracy above 0.8.\\nThis performance is slightly higher for En-\\nglish texts than for Spanish texts. We sus-\\npect that this is due to the diﬀerence in qual-\\nity of the text processing tools for each lan-\\nguage (i.e. lemmatized, PoS, etc.).\\nAmong the metrics used to relate docu-\\nments, the JSD metric performs better than\\nthe other density-based (e.g. Hellinger) and\\nhierarchy-based (e.g. WJL) measures. How-\\never, it seems that density-based metrics\\nperform worse than hierarchy-based metrics\\nwhen the number of topics is high.\\nThis\\ncould be due to the fact that topics have dif-\\nferent levels of speciﬁcity and density-based\\nmetrics assume that all topics are equally de-\\nscriptive, since they all have the same weight\\nwhen measuring distance. The sum of dis-\\ntances of the less representative topics for\\nJSD is higher as the number of topics diverge\\nfrom its optimum number of topics (i.e be-\\ntween 100 and 300 topics in Table 3). How-\\never hierarchy-based metrics only take into\\naccount the most relevant topics, and this\\nbehavior not only makes them robust to di-\\nmensional changes in the models, but also\\nAcquis (MAP@10)\\nLang\\nTopics\\nJSD\\nHE\\nWJL\\nSpanish\\n50\\n0.80060\\n0.79665\\n0.70583\\n100\\n0.82741\\n0.77930\\n0.75555\\n300\\n0.84261\\n0.58531\\n0.79036\\n500\\n0.81238\\n0.68482\\n0.79336\\nEnglish\\n50\\n0.81421\\n0.80150\\n0.73367\\n100\\n0.85510\\n0.74060\\n0.80315\\n300\\n0.84005\\n0.52082\\n0.83277\\n500\\n0.78874\\n0.43636\\n0.84555\\nTable 3: Performance of density-based metrics.\\nAcquis-3 (MAP@10)\\nTraining Set\\n1\\n2\\n3\\nes\\nen\\nes\\nen\\nes\\nen\\nTest Set\\n1\\nJSD\\n0.85\\n0.83\\n0.86\\n0.85\\n0.87\\n0.87\\nWJL\\n0.85\\n0.85\\n0.86\\n0.86\\n0.85\\n0.86\\n2\\nJSD\\n0.80\\n0.75\\n0.77\\n0.75\\n0.82\\n0.80\\nWJL\\n0.73\\n0.77\\n0.81\\n0.83\\n0.82\\n0.83\\n3\\nJSD\\n0.72\\n0.62\\n0.68\\n0.65\\n0.69\\n0.68\\nWJL\\n0.55\\n0.65\\n0.67\\n0.72\\n0.73\\n0.77\\nTable 4: MAP of density- and hierarchical-based\\ndistances from a corpus divided into three sub-\\nsets.\\nseems to improve its accuracy for higher di-\\nmensions.\\nWe can conclude that automatically gen-\\nerated annotations from topic models oﬀer\\na knowledge close to that oﬀered by cate-\\ngories manually assigned from the EuroVoc\\nthesaurus in the Acquis legal corpus to relate\\ntexts. In the case of large and heterogeneous\\ncollections, i.e. with a high number of dif-\\nferent topics, it would be more appropriate\\nto annotate documents by topic hierarchies\\nthan using densities. In view of these results,\\nthe knowledge oﬀered by topics allows auto-\\nmatically discovering what is being treated\\nin a collection of documents, and the knowl-\\nedge oﬀered by its hierarchical representation\\nallows understanding why documents are re-\\nlated in a similar way as it would be done\\nwith manually assigned labels.\\n4.2\\nText Length Impact\\nTo better understand how the length of the\\ntexts used for training aﬀects the creation of\\nprobabilistic topics, we evaluated three dif-\\nferent scenarios where the original corpus is\\ndivided into subsets with similar text sizes.\\nIn the ﬁrst scenario we have created three\\nequal sets and compared the performance\\nusing density-based metrics (i.e.\\nJSD) and\\nhierarchy-based metrics (i.e. WJL) for a doc-\\nument retrieval task. Table 4 shows the mean\\naverage precision when using a training set\\n(columns) and a test set (rows) from among\\nthe 3 subsets into which the initial corpus was\\ndivided. The same experiment has been re-\\npeated in an analogous way for the scenarios\\nwith 6 (Table 5) and 9 (Table 6) subsets. Our\\naim is to analyze if there is any behavior that\\nis common in all of them.\\nModels created from texts, i.e.\\ntrain-\\ning set, with greater or equal length to the\\ntexts used in the inferences, i.e.\\ntest set,\\nCarlos Badenes-Olmedo, Borja Lozano-Álvarez, Oscar Corcho\\n32\\nAcquis-6 (MAP@10)\\nTraining Set\\n1\\n2\\n3\\n4\\n5\\n6\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nTest Set\\n1\\njsd\\n0.79\\n0.76\\n0.79\\n0.77\\n0.79\\n0.78\\n0.79\\n0.77\\n0.79\\n0.77\\n0.77\\n0.73\\nwjl\\n0.78\\n0.74\\n0.78\\n0.76\\n0.77\\n0.77\\n0.78\\n0.76\\n0.78\\n0.76\\n0.74\\n0.69\\n2\\njsd\\n0.82\\n0.80\\n0.81\\n0.77\\n0.80\\n0.76\\n0.81\\n0.79\\n0.85\\n0.82\\n0.84\\n0.84\\nwjl\\n0.81\\n0.82\\n0.85\\n0.86\\n0.84\\n0.86\\n0.85\\n0.85\\n0.85\\n0.85\\n0.83\\n0.84\\n3\\njsd\\n0.76\\n0.73\\n0.78\\n0.73\\n0.72\\n0.68\\n0.78\\n0.71\\n0.81\\n0.75\\n0.81\\n0.76\\nwjl\\n0.73\\n0.70\\n0.72\\n0.78\\n0.81\\n0.79\\n0.81\\n0.80\\n0.82\\n0.80\\n0.79\\n0.80\\n4\\njsd\\n0.69\\n0.68\\n0.72\\n0.67\\n0.71\\n0.68\\n0.68\\n0.63\\n0.73\\n0.69\\n0.74\\n0.71\\nwjl\\n0.63\\n0.69\\n0.66\\n0.72\\n0.74\\n0.76\\n0.77\\n0.78\\n0.77\\n0.79\\n0.75\\n0.79\\n5\\njsd\\n0.62\\n0.57\\n0.69\\n0.61\\n0.66\\n0.62\\n0.67\\n0.59\\n0.63\\n0.59\\n0.70\\n0.65\\nwjl\\n0.60\\n0.63\\n0.57\\n0.64\\n0.65\\n0.69\\n0.70\\n0.71\\n0.73\\n0.74\\n0.72\\n0.75\\n6\\njsd\\n0.55\\n0.52\\n0.67\\n0.56\\n0.61\\n0.56\\n0.63\\n0.56\\n0.63\\n0.56\\n0.59\\n0.55\\nwjl\\n0.51\\n0.57\\n0.51\\n0.60\\n0.58\\n0.63\\n0.63\\n0.67\\n0.66\\n0.70\\n0.69\\n0.71\\nTable 5: MAP of density- and hierarchical-based distances from a corpus divided into six subsets.\\noﬀered better performance in document re-\\ntrieval tasks regardless of the language used.\\nThis behavior appears in the tables 4, 5 and\\n6 in the cells whose column is greater than\\nor equal to its row. This is evidenced by the\\nfact that those models performed better for\\nalmost all sets.\\nAlthough for some evalua-\\ntions of small documents models trained with\\nlarge texts didn’t yield the best performances\\nthey were not signiﬁcantly diﬀerent from the\\nbest models. For small documents both met-\\nrics performed similarly.\\nOn the other hand,\\nthe performance\\nof WJL signiﬁcantly outperformed JSD for\\nlonger documents (i.e. higher columns). A\\nremarkable case is the table 6.\\nThe re-\\nsults for the evaluation of the 9th set (group\\nwith biggest document) with the 9th model\\n(trained with the biggest document set) were\\n13% better in the English case and 21%\\nbetter, suggesting that, with enough text\\ndata, PTM models produce small variations\\nin topic proportion vectors from which WJL\\nmetric beneﬁts.\\n4.3\\nTime Required for\\nComparisons\\nThe perception of eﬃciency on hierarchy-\\nbased metrics to calculate distances in topic\\nmodels for large corpora was analyzed by\\ncapturing the computational time (in sec-\\nonds) that each metric used to compare the\\ndocuments (Fig.4).\\nFor almost all number\\nof topics, hierarchical-based metrics are so\\nmuch faster than probabilistic ones.\\nHow-\\never, for small number of dimensions (i.e.\\ntopics) the topic proportion vector is not\\nsparse enough to identify any relevant topics\\nfrom the uninformative ones, resulting in hi-\\nerarchies containing all topics for every doc-\\nument. In other words, all documents share\\nat least one topic. Increasing the number of\\ntopics alleviates this problem to the point of\\narchiving an almost constant time for more\\nthan 35 topics. Although density-based met-\\nrics (e.g. JSD and HE) increased their com-\\nputational time linearly with the representa-\\ntion size, JSD calculation requires comput-\\ning two logarithms for each dimension in the\\ndocument representation, which is way more\\ntime consuming than the HE metric square-\\nroots.\\nFor the same reason, with a small\\nnumber of dimensions, pairwise comparison\\nis faster using the probabilistic metrics than\\nthe hierarchical metrics.\\nFigure 4: Time required to perform information\\nretrieval tasks on a corpus of 100K documents\\ndescribed with diﬀerent number of topics.\\nImpact of Text Length for Information Retrieval Tasks based on Probabilistic Topics\\n33\\nAcquis-9 (MAP@10)\\nTraining Set\\n1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nes\\nen\\nTest Set\\n1\\njsd\\n0.88\\n0.85\\n0.87\\n0.87\\n0.88\\n0.88\\n0.88\\n0.8\\n0.89\\n0.89\\n0.88\\n0.88\\n0.89\\n0.89\\n0.89\\n0.88\\n0.88\\n0.82\\nwjl\\n0.89\\n0.79\\n0.89\\n0.82\\n0.87\\n0.86\\n0.88\\n0.86\\n0.89\\n0.87\\n0.88\\n0.87\\n0.89\\n0.87\\n0.89\\n0.87\\n0.87\\n0.77\\n2\\njsd\\n0.70\\n0.66\\n0.70\\n0.63\\n0.71\\n0.64\\n0.69\\n0.63\\n0.71\\n0.66\\n0.72\\n0.68\\n0.73\\n0.70\\n0.74\\n0.73\\n0.71\\n0.71\\nwjl\\n0.64\\n0.59\\n0.69\\n0.69\\n0.69\\n0.70\\n0.71\\n0.68\\n0.69\\n0.69\\n0.71\\n0.69\\n0.71\\n0.70\\n0.72\\n0.71\\n0.67\\n0.68\\n3\\njsd\\n0.83\\n0.82\\n0.86\\n0.80\\n0.80\\n0.75\\n0.81\\n0.75\\n0.83\\n0.77\\n0.83\\n0.79\\n0.85\\n0.81\\n0.86\\n0.81\\n0.84\\n0.82\\nwjl\\n0.80\\n0.78\\n0.84\\n0.83\\n0.87\\n0.86\\n0.88\\n0.86\\n0.88\\n0.85\\n0.87\\n0.85\\n0.86\\n0.85\\n0.87\\n0.84\\n0.84\\n0.83\\n4\\njsd\\n0.74\\n0.72\\n0.77\\n0.70\\n0.72\\n0.67\\n0.65\\n0.63\\n0.69\\n0.63\\n0.73\\n0.66\\n0.76\\n0.70\\n0.78\\n0.72\\n0.77\\n0.73\\nwjl\\n0.68\\n0.67\\n0.73\\n0.73\\n0.76\\n0.77\\n0.78\\n0.80\\n0.79\\n0.78\\n0.80\\n0.79\\n0.80\\n0.79\\n0.80\\n0.77\\n0.77\\n0.76\\n5\\njsd\\n0.68\\n0.68\\n0.73\\n0.67\\n0.70\\n0.66\\n0.68\\n0.64\\n0.62\\n0.59\\n0.69\\n0.62\\n0.71\\n0.67\\n0.73\\n0.67\\n0.74\\n0.70\\nwjl\\n0.60\\n0.65\\n0.64\\n0.72\\n0.67\\n0.73\\n0.72\\n0.76\\n0.75\\n0.77\\n0.77\\n0.78\\n0.73\\n0.78\\n0.75\\n0.77\\n0.74\\n0.77\\n6\\njsd\\n0.61\\n0.61\\n0.68\\n0.59\\n0.64\\n0.58\\n0.63\\n0.59\\n0.63\\n0.56\\n0.57\\n0.54\\n0.65\\n0.59\\n0.68\\n0.60\\n0.68\\n0.62\\nwjl\\n0.53\\n0.58\\n0.61\\n0.65\\n0.60\\n0.65\\n0.67\\n0.70\\n0.69\\n0.71\\n0.69\\n0.73\\n0.71\\n0.73\\n0.71\\n0.74\\n0.69\\n0.71\\n7\\njsd\\n0.53\\n0.57\\n0.62\\n0.52\\n0.59\\n0.53\\n0.56\\n0.54\\n0.58\\n0.52\\n0.57\\n0.52\\n0.52\\n0.50\\n0.59\\n0.53\\n0.63\\n0.55\\nwjl\\n0.47\\n0.55\\n0.53\\n0.63\\n0.52\\n0.64\\n0.58\\n0.66\\n0.62\\n0.66\\n0.65\\n0.69\\n0.65\\n0.70\\n0.66\\n0.71\\n0.63\\n0.68\\n8\\njsd\\n0.52\\n0.48\\n0.60\\n0.47\\n0.59\\n0.48\\n0.56\\n0.47\\n0.56\\n0.47\\n0.57\\n0.48\\n0.58\\n0.47\\n0.53\\n0.45\\n0.60\\n0.50\\nwjl\\n0.47\\n0.49\\n0.53\\n0.56\\n0.47\\n0.56\\n0.55\\n0.57\\n0.56\\n0.59\\n0.61\\n0.62\\n0.62\\n0.63\\n0.64\\n0.66\\n0.64\\n0.66\\n9\\njsd\\n0.54\\n0.48\\n0.62\\n0.47\\n0.62\\n0.50\\n0.58\\n0.49\\n0.59\\n0.48\\n0.59\\n0.49\\n0.60\\n0.51\\n0.60\\n0.50\\n0.54\\n0.45\\nwjl\\n0.51\\n0.48\\n0.55\\n0.55\\n0.54\\n0.57\\n0.59\\n0.59\\n0.61\\n0.59\\n0.64\\n0.62\\n0.63\\n0.65\\n0.66\\n0.65\\n0.67\\n0.67\\nTable 6: MAP of density- and hierarchical-based distances from a corpus divided into nine subsets.\\n5\\nConclusions\\nIn this paper we have studied the impact\\nthat the length of texts has, since they de-\\ntermine the space where words can co-occur,\\nto semantically relate documents described\\nin a probabilistic topic space.\\nWe have\\nalso studied the ability of probabilistic top-\\nics to automatically cluster related texts, and\\nthe performance of density-based and topic\\nhierarchy-based distance measures.\\nMulti-\\nple document retrieval tests were performed\\non a collection of legal documents, compar-\\ning the results obtained by this unsupervised\\napproach, with the results obtained using\\nmanual annotations.\\nRepresentation meth-\\nods based on probabilistic topics have proven\\nto be reasonably accurate in annotating se-\\nmantically related documents with the same\\ncategories. State-of-the-art metrics based on\\ndensities and hierarchical representations of\\ntopics were evaluated to measure document\\nsimilarity. Regardless of the approach used,\\nthe knowledge captured by word distribu-\\ntions (i.e topics) to automatically relate le-\\ngal texts has shown an accuracy close to 0.8\\ncompared to relations based on EuroVoc cat-\\negories.\\nThe results guide us in the use of proba-\\nbilistic topic models to facilitate the explo-\\nration of large collections of documents. The\\nknowledge inferred by these models to au-\\ntomatically group semantically related doc-\\numents is highly sensitive to the texts used\\nin their training.\\nTheir ability to general-\\nize such knowledge only seems to make sense\\nin one direction: with texts whose length is\\nequal to or longer than those used during\\ntraining.\\nThis allows us to conclude that,\\nfor example, the knowledge extracted from\\nthe topics inferred from a collection of tweets\\n(texts of no more than 260 characters), can-\\nnot be extended to automatically classify, for\\nexample, blog posts (more than 300 charac-\\nters). If we assume that the complexity of\\na text increases as its length increases, the\\nlogic used to infer topics is unable to capture\\nmore complex knowledge than was proposed\\nduring training.\\nIf we consider that the complexity of a text\\nis directly proportional to its length, proba-\\nbilistic models are not able to generalize the\\nknowledge they acquire during their train-\\ning to process more complex texts. In other\\nwords, the knowledge captured by probabilis-\\ntic topics to group semantically related docu-\\nments can only be applied to texts of equal or\\nlesser length than those used during training.\\nIn addition, the larger the corpus and the\\nmore topics it contains (i.e. the more diverse\\nthe content of its documents), the more ap-\\npropriate it is to use similarity metrics based\\non hierarchical representations of the topics\\n(see Figures 5 and 6). The noise introduced\\nby the less present topics in a text is adverse\\nto density-based metrics. The relationships\\nsuggested when manually annotating docu-\\nments are therefore based on a small group\\nof labels. Under these conditions, PTM can\\nguide the corpus exploration by providing an\\nunsupervised method to thematically anno-\\ntate documents and potentially giving insight\\nof the relations between documents.\\nCarlos Badenes-Olmedo, Borja Lozano-Álvarez, Oscar Corcho\\n34\\nFigure 5: Test comparisons in 6 partitions based on JSD.\\nFigure 6: Test comparisons in 6 partitions based on WJL.\\nThere are still challenges and questions\\nthat will have to be solved in future work,\\nnamely ﬁnding the inﬂuence of the weights in\\nthe hierarchical-based metric; analyzing the\\ncomplexity of texts beyond their lengths, tak-\\ning into account the rhetoric of its discourse\\nto represent scientiﬁc texts (.e.g. using only\\nthe paragraphs describing the approach or\\nthe method to create the topic distributions);\\nAnd even observing their behaviour in diﬀer-\\nent languages.\\nAcknowledgments\\nThis\\nwork\\nis\\nsupported\\nby\\nthe\\nproject\\nKnowledgeSpaces with reference PID2020-\\n118274RB-I00, ﬁnanced by the Spanish Min-\\nistry of Science and Innovation.\\nReferences\\nBadenes-Olmedo,\\nC.,\\nJ. Redondo-Garc´ıa,\\nand O. Corcho.\\n2019a.\\nLarge-Scale Se-\\nmantic Exploration of Scientiﬁc Literature\\nusing Topic-based Hashing Algorithms.\\nSemantic Web Journal.\\nBadenes-Olmedo,\\nC.,\\nJ. Redondo-Garc´ıa,\\nand O. Corcho. 2019b. Legal document\\nretrieval across languages:\\ntopic hierar-\\nchies based on synsets. Proceedings of the\\n1st Workshop on Iberlegal co-located with\\n32nd International Conference on Legal\\nKnowledge and Information Systems orga-\\nnized by the Foundation for Legal Knowl-\\nedge Based Systems (JURIX).\\nBadenes-Olmedo, C., J. L. Redondo-Garc´ıa,\\nand O. Corcho. 2017a. Distributing text\\nmining tasks with librairy.\\nIn DocEng\\n2017 - Proceedings of the 2017 ACM Sym-\\nImpact of Text Length for Information Retrieval Tasks based on Probabilistic Topics\\n35\\nposium on Document Engineering, pages\\n63–66, August.\\nBadenes-Olmedo, C., J. L. Redondo-Garc´ıa,\\nand O. Corcho. 2017b. An initial anal-\\nysis of topic-based similarity among sci-\\nentiﬁc documents based on their rhetori-\\ncal discourse parts. In Proceedings of the\\nFirst Workshop on Enabling Open Seman-\\ntic Science (SemSci), pages 15–22.\\nBlei, D., A. Ng, and M. Jordan. 2003. Latent\\nDirichlet Allocation. Journal of Machine\\nLearning Research, 3(4-5):993–1022.\\nDeerwester, S., S. T. Dumais, G. W. Fur-\\nnas, T. K. Landauer, and R. Harshman.\\n1990. Indexing by latent semantic analy-\\nsis. Journal of the American Society for\\nInformation Science, 41(6):391–407.\\nDieng, A. B., F. Ruiz, and D. Blei.\\n2020.\\nTopic\\nmodeling\\nin\\nembedding\\nspaces.\\nTransactions of the Association for Com-\\nputational Linguistics, 8:439–453.\\nHe, J., L. Li, and X. Wu.\\n2017.\\nA\\nself-adaptive sliding window based topic\\nmodel for non-uniform texts.\\nIn Pro-\\nceedings - IEEE International Conference\\non Data Mining, ICDM, volume 2017-\\nNovem, pages 147–156.\\nHofmann, T. 2001. Unsupervised Learning\\nby Probabilistic Latent Semantic Analy-\\nsis. Machine Learning, 42(1-2):177–196.\\nHofmann, T. 1999. Probabilistic latent se-\\nmantic indexing.\\nIn Proceedings of the\\n22nd annual international ACM SIGIR\\nconference on Research and development\\nin information retrieval, pages 50–57.\\nHu, Y., K. Zhai, V. Eidelman, and J. Boyd-\\nGraber.\\n2014.\\nPolylingual tree-based\\ntopic models for translation domain adap-\\ntation. In Proceedings of the 52nd Annual\\nMeeting of the Association for Computa-\\ntional Linguistics (Volume 1: Long Pa-\\npers), pages 1166–1176.\\nJelodar, H., Y. Wang, C. Yuan, X. Feng,\\nX. Jiang, Y. Li, and L. Zhao. 2017. Latent\\ndirichlet allocation (lda) and topic model-\\ning: models, applications, a survey.\\nJung, K. H., E. Ruthruﬀ, and T. Goldsmith.\\n2017. Document similarity misjudgment\\nby lsa: Misses vs. false positives. Cogni-\\ntive Science.\\nMao, X.-L., B.-S. Feng, Y.-J. Hao, L. Nie,\\nH. Huang, and G. Wen.\\n2017.\\nS2JSD-\\nLSH: a locality-sensitive hashing schema\\nfor probability distributions.\\nIn Thirty-\\nFirst AAAI Conference on Artiﬁcial In-\\ntelligence.\\nNzali,\\nT.,\\nM.\\nDonald,\\nS.\\nBringay,\\nC. Lavergne, C. Mollevi, and T. Opitz.\\n2017. What Patients Can Tell Us: Topic\\nAnalysis\\nfor\\nSocial\\nMedia\\non\\nBreast\\nCancer.\\nJMIR\\nmedical\\ninformatics,\\n5(3):e23.\\nO’Neill,\\nJ.,\\nC. Robin,\\nL. O’Brien,\\nand\\nP. Buitelaar. 2017. An analysis of topic\\nmodelling for legislative texts.\\nCEUR\\nWorkshop Proceedings, 2143.\\nRus,\\nV.,\\nN.\\nNiraula,\\nand\\nR.\\nBanjade.\\n2013.\\nSimilarity measures based on la-\\ntent dirichlet allocation. In International\\nConference on Intelligent Text Process-\\ning and Computational Linguistics, pages\\n459–470. Springer.\\nSchoﬁeld, A., M. Magnusson, and D. Mimno.\\n2017.\\nPulling out the stops:\\nRethink-\\ning stopword removal for topic models.\\nIn Proceedings of the 15th Conference of\\nthe European Chapter of the Association\\nfor Computational Linguistics: Volume 2,\\nShort Papers, pages 432–436, Valencia,\\nSpain. Association for Computational Lin-\\nguistics.\\nSteinberger, R., M. Ebrahim, A. Poulis,\\nM.\\nCarrasco-Benitez,\\nP.\\nSchl¨uter,\\nM. Przybyszewski, and S. Gilbro. 2014.\\nAn overview of the European Union’s\\nhighly\\nmultilingual\\nparallel\\ncorpora.\\nLanguage\\nResources\\nand\\nEvaluation,\\n48(4):679–707, November.\\nSteinberger,\\nR.,\\nB. Pouliquen,\\nA. Widi-\\nger, C. Ignat, T. Erjavec, D. Tuﬁ¸s, and\\nD. Varga. 2006. The JRC-Acquis: A mul-\\ntilingual aligned parallel corpus with 20+\\nlanguages. The 5th International Confer-\\nence on Language Resources and Evalua-\\ntion - Proceedings p. 2142-2147, May.\\nSyed, S. and M. R. Spruit. 2017. Full-Text\\nor Abstract?\\nExamining Topic Coher-\\nence Scores Using Latent Dirichlet Alloca-\\ntion. 2017 IEEE International Conference\\non Data Science and Advanced Analytics\\n(DSAA), pages 165–174.\\nCarlos Badenes-Olmedo, Borja Lozano-Álvarez, Oscar Corcho\\n36\\n\"\n        \n\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/delocos/_analyze",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"delocos",
+								"_analyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/search?index=delocos3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "delocos3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postpdf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/diego/Documentos/git/TFG/ElasticMiddleware/archivosDePrueba/paper339.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/pdftoJson?index=delocos&id=1&author=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"pdftoJson"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "delocos"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "author",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Searchmatch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/searchMatch?index=de&matchRequested=oscar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"searchMatch"
+							],
+							"query": [
+								{
+									"key": "index",
+									"value": "de"
+								},
+								{
+									"key": "matchRequested",
+									"value": "oscar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

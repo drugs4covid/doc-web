@@ -1,0 +1,71 @@
+version: '2.2'
+services:
+  angularcli:
+    build: ./angularFront
+    ports:
+      - "4200:4200"
+    networks:
+      - elastic
+
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    container_name: db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      NODE_OPTIONS: "--unhandled-rejections=strict"
+
+    volumes:
+      - ./mongo-data:/data/db
+    networks:
+      - elastic
+
+  elasticmiddleware:
+      build: ./ElasticMiddleware
+      ports:
+        - "8000:8000"
+      networks:
+        - elastic
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    ports:
+      - 9000:9000
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.3
+    container_name: es01
+    environment:
+      - node.name=es01
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+
+volumes:
+  data01:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge

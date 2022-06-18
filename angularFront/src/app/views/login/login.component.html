@@ -1,0 +1,27 @@
+
+<!-- login.component.html -->
+
+<div class="login">
+  <div class="fadeIn first">
+    <img   class="fadeIn first" src="assets/logooeg.png" alt="HTML5 Icon" alt="User Icon" style="width:128px;height:128px;" />
+  </div>
+
+  <form class="custom-form" method="post">
+    <h1>Login</h1>
+    <input
+      type="username"
+      [(ngModel)]="username"
+      name="username" 
+      placeholder="username"
+      required="username"
+    />
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      required="required"
+    />
+    <button type="submit" (click)="login()">Log in</button>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+elasticsearch==8.2.0
+fastapi==0.78.0
+jose==1.0.0
+matplotlib==3.5.2
+pandas==1.4.2
+passlib==1.7.4
+Pillow==9.1.1
+pydantic==1.9.1
+pymongo==4.1.1
+python_jose==3.3.0
+requests==2.27.1
+starlette==0.19.1
+uvicorn==0.17.6
+PyMuPDF
+python-multipart
