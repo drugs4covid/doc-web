@@ -1,7 +1,7 @@
-import requests
 import json
-import pandas as pd
 
+import pandas as pd
+import requests
 
 query = "http://librairy.linkeddata.es/solr/covid-paragraphs/select?_=165168303538&q=*:*"
 

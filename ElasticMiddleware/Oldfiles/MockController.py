@@ -4,23 +4,14 @@
 #pip install aiofiles
 #pip install matplotlib
 #pip install python-multipart
-import http.client
 
-import fastapi
+import json
+
+import pandas as pd
 import uvicorn
+from elasticsearch import Elasticsearch
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse
-from datetime import datetime
-from elasticsearch import Elasticsearch, helpers
-import pandas as pd
-import json
-from typing import Any, Dict, AnyStr, List, Union
-
-
-import matplotlib.pyplot as plt
-import requests
-from PIL import Image
-import io
 
 app = FastAPI()
 es = Elasticsearch("http://localhost:9200")

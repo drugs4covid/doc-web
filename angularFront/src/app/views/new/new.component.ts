@@ -1,7 +1,7 @@
 // register.component.ts
 
 import { Component } from "@angular/core";
-import{ApiService}from "../../services/api/api.service"
+import{ApiService}from "../../conector/api/api.conector"
 import { Router } from '@angular/router';
 
 @Component({

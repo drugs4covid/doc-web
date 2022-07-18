@@ -1,4 +1,4 @@
-version: '2.2'
+version: '3'
 services:
   angularcli:
     build: ./angularFront
@@ -25,6 +25,7 @@ services:
       - elastic
 
   elasticmiddleware:
+      container_name: elasticmiddleware
       build: ./ElasticMiddleware
       ports:
         - "8000:8000"
