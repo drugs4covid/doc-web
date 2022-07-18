@@ -1,4 +1,4 @@
-# TFG
+# Application for content exploration of a document oriented database
 
 step 1:
 -
@@ -69,7 +69,9 @@ In this step we are going to adjust the different volumes and consequently, the 
       - ./mongo-data:/data/db → - /this/is/un/path/new:/data/db.
  
 It would be to replace until ":" appears with the path we want to store the container data .
+
 step 5:
+-
 
 Once we have configured the ports and volumes we don't need to configure more of the docker-compose file, it can be closed and we start a terminal inside the container folder. 
 
@@ -92,6 +94,8 @@ step 6:
 The server can now be accessed on the selected port and we should have access to the application login window. default address and port: "http://localhost:4200"
 
 ---------------------------------------------------------------------------------------------------------------------------------
+# Aplicación para la exploración de contenidos de una base de datos orientada a documentos
+
 Parte 1:
 -
 Empezaremos descargando la herramienta Docker y docker compose dentro de nuestro sistema operativo.
@@ -161,8 +165,9 @@ En este paso vamos a ajustar los distintos volúmenes y en consecuencia, la pers
       - ./mongo-data:/data/db →       - /esto/es/un/path/nuevo:/data/db
  
 Sería sustituir hasta que aparece “:” con el path que queremos para almacenar los datos del contenedor .
-paso 5:
 
+paso 5:
+-
 Una vez hemos configurado los puertos y los volúmenes no es necesario configurar más del fichero docker-compose, se puede cerrar y arrancamos una terminal dentro de la carpeta contenedora. 
 
 vamos a crear las imágenes que necesita nuestra aplicación  para poder  desplegarse, esto se hace mediante el comando build de docker-compose y añadiendo al final el nombre del contenedor (en nuestro caso solo hace falta con elasticmiddleware y angularcli, el resto son imágenes ya creadas dentro del docker hub ):
