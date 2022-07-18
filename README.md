@@ -1,5 +1,9 @@
 # Application for content exploration of a document oriented database
 
+# Version 1.0 
+
+
+
 step 1:
 -
 We will start by downloading the Docker tool and docker compose inside our operating system.
